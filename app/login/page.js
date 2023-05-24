@@ -1,22 +1,40 @@
+"use client";
 import axios from "axios";
-import Link from "next/link";
-import React from "react";
-import styles from "../login/styles.module.css";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import LoginForm from "@app/components/LoginForm";
 
-export const dynamic = "force-dynamic";
-const page = async ({}) => {
-  const session = null;
-  //if (!session) throw new Error("Auth is required to access this resource");
-  const { data } = await axios.get(
-    "https://jsonplaceholder.typicode.com/posts/1"
-  );
+const page = () => {
+  const router = useRouter();
+  const [userDetails, setUserDetails] = useState({ name: "", pass: "" });
+  const isFormValid = userDetails;
+
+  const loginDataHandle = async (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior
+    // console.log("inside the cretepromt function");
+    router.push("/dashboard");
+    const userData = {
+      username: userDetails.name,
+      password: userDetails.pass,
+    };
+    // console.log("-->", userData);
+    axios
+      .post("http://localhost:3000/api/LoginData", userData)
+      .then((response) => {
+        // console.log(response.status, response.userData);
+      });
+  };
 
   return (
     <div>
-      <Link href="/dashboard" className={styles.login}>
-        Login page
-      </Link>
-      <div>{JSON.stringify(data)}</div>
+      login window
+      <LoginForm
+        type="Login to AI-2.O"
+        userDetails={userDetails}
+        setUserDetails={setUserDetails}
+        isFormValid={isFormValid}
+        handleSubmit={loginDataHandle}
+      />
     </div>
   );
 };

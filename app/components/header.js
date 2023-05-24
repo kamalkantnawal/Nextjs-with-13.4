@@ -26,12 +26,14 @@ const Header = () => {
           </div>
           <div className={style.bannerNav}>
             <div>Home</div>
-            <div>
+            <div className="black_btn">
               <Link href="/dashboard">Tcg Mcube</Link>
             </div>
             <div>Offerings</div>
             <div>Industries</div>
-            <div>Contact..</div>
+            <div className="black_btn">
+              <Link href="/login">Login</Link>
+            </div>
           </div>
         </div>
       </div>

@@ -14,7 +14,6 @@ const styles = {
 const AI2 = (props) => {
   return (
     <div>
-      <h1>Welcome to AI 2.O</h1>
       <div className={styles.wrapper}>
         <div className="px-3">
           <Link href="/components/datadetails/addnewdataset">
@@ -29,6 +28,7 @@ const AI2 = (props) => {
           </Link>
           <Datasetlist />
         </div>
+
         <div className="px-3">
           <Link href="/components/projectdetails/addnewproject">
             <div>

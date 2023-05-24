@@ -79,7 +79,7 @@ function Adding_newProject(props) {
             type="submit"
             disabled={!isFormValid}
             onClick={openPopup}
-            className="bg-black text-white py-2 px-8 rounded-full flex items-center justify-center gap-2 cursor-pointer"
+            className="black_btn"
           >
             <a>OK</a>
           </button>
